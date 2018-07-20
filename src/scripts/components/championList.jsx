@@ -5,50 +5,37 @@ import { connect } from "react-redux";
 import Champion from "./champion";
 
 class ChampionList extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            champions: []
-        };
-    }
-
     componentDidMount() {
-        console.log(this.state);
+        window.props = this.props;
 
-        this.props.championsFetch().then((response) => {
-            let data = response.data.data;
-            var keys = Object.keys(data);
-            let champions = [];
-
-            keys.forEach(element => {
-                champions.push(data[element]);
-            });
-
-            this.setState({
-                champions: champions
-            });
-
-        }).catch((error) => {
-            console.log('error', error);
-        })
+        this.props.championsFetch();
     }
 
     render() {
-        return (
-            <div className="champions_list">
-                {
-                    this.state.champions.map((data, index) => {
-                        return <Champion {...data} />
-                    })
-                }
-            </div>
+        var arrChamps = Object.values(this.props.champions);
+        
+        if(arrChamps.length > 0)
+            return (
+                <div className="champions_list">
+                    {
+                            arrChamps.map((data, index) => {
+                                return <Champion {...data} />
+                            })
+                        }
+                </div>
         );
+        return (<div></div>)
+     }
+}
+
+function mapStateToProps(state) {
+    return {
+        ...state
     }
+  }
+
+const mapDispatchToProps = {
+    championsFetch: championsFetch
 }
 
-ChampionList.propTypes = {
-    championsFetch: PropTypes.func.isRequired,
-}
-
-export default connect(null, { championsFetch })(ChampionList)
+export default connect(mapStateToProps, mapDispatchToProps)(ChampionList)

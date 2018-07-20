@@ -2,16 +2,16 @@ import { CHAMPIONS_FETCHED } from '../actions/types';
 import isEmpty from 'lodash/isEmpty';
 
 const initialState = {
-  isFetched: false,
-  data: {}
 };
 
 export default (state = initialState, action = {}) => {
+  console.log('action', action);
+  console.log('state', state);
   switch (action.type) {
     case CHAMPIONS_FETCHED:
       return {
-        isFetched: !isEmpty(action.user),
-        data: action.data
+        ...state,
+        ...action.champions
       };
     default: return state;
   }

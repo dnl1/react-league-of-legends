@@ -11,7 +11,7 @@ class ChampionsPage extends Component {
 
     render() {
         return (
-            <section class="champions_page">
+            <section className="champions_page">
                 <h2 className="text-center">Champions</h2>
                 <ChampionList />
             </section>
