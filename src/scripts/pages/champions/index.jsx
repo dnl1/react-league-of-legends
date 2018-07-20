@@ -3,12 +3,6 @@ import ChampionList from '../../components/championList';
 import '../../../scss/pages/champions.scss';
 
 class ChampionsPage extends Component {
-
-    constructor(props) {
-        super(props);
-
-    }
-
     render() {
         return (
             <section className="champions_page">

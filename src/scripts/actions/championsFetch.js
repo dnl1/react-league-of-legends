@@ -16,7 +16,7 @@ export function championsFetch(data) {
 
             dispatch({
                 type: CHAMPIONS_FETCHED,
-                champions: [...champions]
+                champions
             })
         })
 
