@@ -4,6 +4,7 @@ import Routes from './routes';
 import logo from '../logo.svg';
 import '../scss/app.scss';
 import NavBar from "./pages/navbar";
+import Search from "./components/search";
 import RouteHelper from "./helpers/routeHelper";
 const supportsHistory = "pushState" in window.history
 
@@ -17,7 +18,7 @@ class App extends Component {
                             <a href={RouteHelper.resolvePath('/')}>
                                 <img src={logo} className="App-logo" alt="logo" />
                             </a>
-                            <h1 className="App-title">Welcome to <br />React of Legends</h1>
+                            <h1 className="App-title">React of Legends</h1>
                             <NavBar />
                         </header>
                     </div>

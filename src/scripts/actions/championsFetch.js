@@ -11,9 +11,10 @@ export function championsFetch(data) {
             let champions = [];
 
             keys.forEach(element => {
+                data[element].chave = data[element].key;
                 champions.push(data[element]);
             });
-
+            console.log('champions', champions);
             dispatch({
                 type: CHAMPIONS_FETCHED,
                 champions

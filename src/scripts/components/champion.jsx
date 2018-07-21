@@ -5,7 +5,7 @@ class Champion extends Component {
     render() {
         return (
             <div className="champion">
-                <img className="champion__image" alt={this.props.name} src={`//media.services.zam.com/v1/media/byName/lolking/img/champions/tile/${this.props.id}.png?crop_x=10&crop_y=10&crop_width=100&crop_height=100&width=64`} />
+                <img className="champion__image" alt={this.props.name} src={`//ddragon.leagueoflegends.com/cdn/8.13.1/img/champion/${this.props.chave.replace('\'','').replace(' ','')}.png`} width="84"/>
                 <section>
                     <p>{this.props.name}</p>
                 </section>
@@ -17,6 +17,7 @@ class Champion extends Component {
 Champion.propTypes = {
     id: PropTypes.number,
     name: PropTypes.string,
+    chave: PropTypes.string,
     title: PropTypes.string,
 }
 
