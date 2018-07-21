@@ -17,7 +17,7 @@ class App extends Component {
                             <a href={RouteHelper.resolvePath('/')}>
                                 <img src={logo} className="App-logo" alt="logo" />
                             </a>
-                            <h1 className="App-title">Welcome to <br />React League of Legends</h1>
+                            <h1 className="App-title">Welcome to <br />React of Legends</h1>
                             <NavBar />
                         </header>
                     </div>

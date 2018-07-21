@@ -5,7 +5,7 @@ import '../../../scss/pages/champions.scss';
 class ChampionsPage extends Component {
     render() {
         return (
-            <section className="champions_page">
+            <section className="champions_page text-center">
                 <h2 className="text-center">Champions</h2>
                 <ChampionList />
             </section>
