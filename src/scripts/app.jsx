@@ -4,12 +4,12 @@ import Routes from './routes';
 import logo from '../logo.svg';
 import '../scss/app.scss';
 import NavBar from "./pages/navbar";
-import Search from "./components/search";
 import RouteHelper from "./helpers/routeHelper";
 const supportsHistory = "pushState" in window.history
 
 class App extends Component {
     render() {
+        window.localStorage.clear();
         return (
             <Router forceRefresh={!supportsHistory}>
                 <main className="application">

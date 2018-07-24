@@ -8,7 +8,6 @@ export default {
             var baseUrl = splited[1];
 
             let finalUrl = `/${baseUrl}${path}`;
-            console.log(finalUrl);
             return finalUrl;
         }
     }
