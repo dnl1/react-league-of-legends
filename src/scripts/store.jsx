@@ -6,6 +6,7 @@ import {
 } from "redux"
 import thunk from "redux-thunk"
 import champions from './reducers/champions'
+import { createLogger } from 'redux-logger'
 
 export const createCommonStore = (trackStore = false) => {
 
@@ -13,11 +14,13 @@ export const createCommonStore = (trackStore = false) => {
         champions
     });
 
+    const logger = createLogger();
+
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
     const store = createStore(reducers,
         composeEnhancers(
-            applyMiddleware(thunk),
+            applyMiddleware(thunk, logger),
             window.devToolsExtension ? window.devToolsExtension() : f => f
         ));
 

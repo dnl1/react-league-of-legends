@@ -1,8 +1,9 @@
-import { CHAMPIONS_FETCHED, CHAMPIONS_FILTER } from '../actions/types';
+import { CHAMPIONS_FETCHED, CHAMPIONS_FILTER, CHAMPIONS_FETCHING } from '../actions/types';
 
 const initialState = {
   filter: '',
-  champions: []
+  champions: [],
+  loading: false
 };
 
 export default (state = initialState, action = {}) => {
@@ -23,15 +24,22 @@ export default (state = initialState, action = {}) => {
 
       return {
         ...state,
-        ...action
+        ...action,
       }
 
     case CHAMPIONS_FILTER:
       sortChampions();
 
+
       return {
         ...state,
-        ...action
+        ...action,
+      }
+
+    case CHAMPIONS_FETCHING:
+      return {
+        ...state,
+        ...action,
       }
 
     default: return state;

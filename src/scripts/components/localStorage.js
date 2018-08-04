@@ -5,7 +5,7 @@ class LocalStorage extends Storage {
         super(props);
     }
 
-    get(key) {
+    static get(key) {
         let item = localStorage.getItem(key);
         try {
             return JSON.parse(item);
@@ -13,14 +13,11 @@ class LocalStorage extends Storage {
             return item;
         }
     }
-    set(key, value) {
-        console.log('key', key);
+    static set(key, value) {
         if (value instanceof Object) value = JSON.stringify(value);
-
-        console.log('value', value);
         localStorage.setItem(key, value);
     }
-    remove(key) {
+    static remove(key) {
         localStorage.removeItem(key);
     }
 }

@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { Link } from 'react-router-dom'
 
 class Champion extends Component {
+    onImageLoad() {
+
+    }
+
     render() {
         return (
             <ReactCSSTransitionGroup
@@ -10,14 +15,19 @@ class Champion extends Component {
                 transitionAppear={true}
                 transitionAppearTimeout={500}
                 transitionLeave={true}
-                transitionLeaveTimeout={500}>
+                transitionLeaveTimeout={500}
+                transitionEnter={true}
+                transitionEnterTimeout={500}
+            >
 
-                <div className="champion">
-                    <img className="champion__image" alt={this.props.name} src={`//ddragon.leagueoflegends.com/cdn/8.13.1/img/champion/${this.props.chave.replace('\'','').replace(' ','')}.png`} width="84"/>
-                    <section>
-                        <p>{this.props.name}</p>
-                    </section>
-                </div>
+                <Link to={`champions/${this.props.name.toLowerCase()}`}>
+                    <div className="champion">
+                        <img className="champion__image" onLoad={this.onImageLoad.bind(this)} alt={this.props.name} src={`//ddragon.leagueoflegends.com/cdn/8.15.1/img/champion/${this.props.chave.replace('\'', '').replace(' ', '')}.png`} width="84" />
+                        <section>
+                            <p>{this.props.name}</p>
+                        </section>
+                    </div>
+                </Link>
             </ReactCSSTransitionGroup>
         );
     }

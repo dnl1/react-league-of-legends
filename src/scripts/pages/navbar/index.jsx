@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import RouteHelper from "../../helpers/routeHelper";
+import { Link } from 'react-router-dom'
 
 class NavBar extends Component {
     render() {
         return (
             <nav>
-                <a href={RouteHelper.resolvePath('/champions')}>Champions</a>
+                <Link to={RouteHelper.resolvePath('/champions')}>Champions</Link>
             </nav>
         );
     }

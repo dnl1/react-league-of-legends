@@ -1,14 +1,31 @@
 import http from "../helpers/http";
+import localStorage from "../components/localStorage";
+
 import {
     CHAMPIONS_FETCHED,
-    CHAMPIONS_FILTER
+    CHAMPIONS_FILTER,
+    CHAMPIONS_FETCHING
 } from "./types"
 
 export function fetch(data) {
     return dispatch => {
-        let jsoncache = window.localStorage.getItem('cacheChampion')
-        if (jsoncache) {
-            return JSON.parse(jsoncache);
+        dispatch({
+            type: CHAMPIONS_FETCHING,
+            champions: [],
+            filter: '',
+            loading: true
+        })
+
+        let champions = localStorage.get('cacheChampion');
+        if (champions) {
+            dispatch({
+                type: CHAMPIONS_FETCHED,
+                champions: champions,
+                filter: '',
+                loading: false
+            })
+
+            return;
         }
 
         return http.get('champions').then(response => {
@@ -21,12 +38,13 @@ export function fetch(data) {
                 champions.push(data[element]);
             });
 
-            window.localStorage.setItem('cacheChampion', JSON.stringify(champions));
+            localStorage.set('cacheChampion', JSON.stringify(champions));
 
             dispatch({
                 type: CHAMPIONS_FETCHED,
                 champions: champions,
-                filter: ''
+                filter: '',
+                loading: false
             })
         })
 
@@ -36,8 +54,7 @@ export function fetch(data) {
 
 export function filter(searchString = '') {
     return (dispatch, getState) => {
-        let cache = window.localStorage.getItem('cacheChampion');
-        let champions = JSON.parse(cache);
+        let champions = localStorage.get('cacheChampion');
 
         const dispayedChampions = champions.filter(champion => {
             return champion.name.toLowerCase().includes(searchString.toLowerCase())
