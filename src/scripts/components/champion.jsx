@@ -21,7 +21,7 @@ class Champion extends Component {
                 transitionEnterTimeout={500}
             >
 
-                <Link to={routeHelper.resolvePath(`/champions/${this.props.name.toLowerCase()}`)}>
+                <Link to={routeHelper.resolvePath(`champions/${this.props.name.toLowerCase()}`)}>
                     <div className="champion">
                         <img className="champion__image" onLoad={this.onImageLoad.bind(this)} alt={this.props.name} src={`//ddragon.leagueoflegends.com/cdn/8.15.1/img/champion/${this.props.chave.replace('\'', '').replace(' ', '')}.png`} width="84" />
                         <section>

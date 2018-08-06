@@ -24,8 +24,10 @@ class ChampionsDetail extends Component {
 
     fixName(name) {
         if (name.includes('\'')) {
+            let specialChampions = ['kog', 'rek'];
             let splitedName = name.split('\'');
-            return utils.capitalize(splitedName[0]) + utils.capitalize(splitedName[1]);
+            console.log(splitedName);
+            return utils.capitalize(splitedName[0] + (specialChampions.includes(splitedName[0]) ? utils.capitalize(splitedName[1]) : splitedName[1]));
         }
 
         if (name.includes(' ')) {
