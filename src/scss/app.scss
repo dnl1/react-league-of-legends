@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -35,6 +39,7 @@ body {
   color: #fff;
 }
 
-input, textarea{
-  color:#000;
+input,
+textarea {
+  color: #000;
 }

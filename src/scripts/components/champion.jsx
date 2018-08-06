@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Link } from 'react-router-dom'
+import routeHelper from '../helpers/routeHelper';
 
 class Champion extends Component {
     onImageLoad() {
@@ -20,7 +21,7 @@ class Champion extends Component {
                 transitionEnterTimeout={500}
             >
 
-                <Link to={`champions/${this.props.name.toLowerCase()}`}>
+                <Link to={routeHelper.resolvePath(`/champions/${this.props.name.toLowerCase()}`)}>
                     <div className="champion">
                         <img className="champion__image" onLoad={this.onImageLoad.bind(this)} alt={this.props.name} src={`//ddragon.leagueoflegends.com/cdn/8.15.1/img/champion/${this.props.chave.replace('\'', '').replace(' ', '')}.png`} width="84" />
                         <section>

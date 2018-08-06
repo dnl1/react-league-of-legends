@@ -7,11 +7,11 @@ import RouteHelper from "./helpers/routeHelper";
 
 const Routes = () => {
     return (
-        <Switch>
+        <div>
             <Route exact={true} path={RouteHelper.resolvePath('/')} component={HomePage} />
-            <Route exact={true} path={RouteHelper.resolvePath('/champions')} component={ChampionsPage} />
-            <Route exact={true} path={RouteHelper.resolvePath('/champions/:name')} component={ChampionsDetail} />
-        </Switch>
+            <Route path={RouteHelper.resolvePath('/champions')} component={ChampionsPage} />
+            <Route path={RouteHelper.resolvePath('/champions/:name')} component={ChampionsDetail} />
+        </div>
     );
 }
 
