@@ -26,12 +26,14 @@ class ChampionsDetail extends Component {
         if (name.includes('\'')) {
             let specialChampions = ['kog', 'rek'];
             let splitedName = name.split('\'');
-            console.log(splitedName);
+
+
             return utils.capitalize(splitedName[0] + (specialChampions.includes(splitedName[0]) ? utils.capitalize(splitedName[1]) : splitedName[1]));
         }
 
         if (name.includes(' ')) {
             let splitedName = name.split(' ');
+            if (splitedName[1] == 'iv') splitedName[1] = splitedName[1].toUpperCase();
             return utils.capitalize(splitedName[0]) + utils.capitalize(splitedName[1]);
         }
 
@@ -44,6 +46,8 @@ class ChampionsDetail extends Component {
         let i = 0;
 
         name = this.fixName(name);
+
+        console.log('name', name);
 
         while (looping) {
             let url = `//ddragon.leagueoflegends.com/cdn/img/champion/splash/${utils.capitalize(name)}_${i}.jpg`;
