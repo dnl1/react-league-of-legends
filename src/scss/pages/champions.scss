@@ -25,6 +25,12 @@
         transition: all .2s ease;
         &__image {
             border: 4px solid #d7bd33;
+            background-image: url(https://dnl1.github.io/react-spotify/assets/images/not-found.png);
+            background-size: 170px;
+            min-width: 84px;
+            min-height: 84px;
+            background-position-y: -17px;
+            background-position-x: -45px;
         }
         &:hover {
             cursor: pointer;
