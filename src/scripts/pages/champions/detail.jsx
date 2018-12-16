@@ -3,7 +3,7 @@ import BackButton from '../../components/backButton';
 import utils from "../../helpers/utils";
 import '../../../scss/pages/championDetail.scss';
 import Loader from '../../components/loader';
-
+/*jshint loopfunc: true */
 class ChampionsDetail extends Component {
     constructor(props) {
         super(props);

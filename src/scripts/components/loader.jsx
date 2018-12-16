@@ -3,10 +3,6 @@ import image from '../../images/lol-loader.png'
 import '../../scss/components/loader.scss';
 
 class Loader extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             this.props.loading ?
