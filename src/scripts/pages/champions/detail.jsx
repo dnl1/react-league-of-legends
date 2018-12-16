@@ -37,7 +37,7 @@ class ChampionsDetail extends Component {
 
         if (name.includes(' ')) {
             let splitedName = name.split(' ');
-            if (splitedName[1] == 'iv') splitedName[1] = splitedName[1].toUpperCase();
+            if (splitedName[1] === 'iv') splitedName[1] = splitedName[1].toUpperCase();
             return utils.capitalize(splitedName[0]) + utils.capitalize(splitedName[1]);
         }
 

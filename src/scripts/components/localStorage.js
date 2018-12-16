@@ -1,10 +1,6 @@
 import Storage from './storage';
 
 class LocalStorage extends Storage {
-    constructor(props) {
-        super(props);
-    }
-
     static get(key) {
         let item = localStorage.getItem(key);
         try {
