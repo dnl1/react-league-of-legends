@@ -18,7 +18,11 @@ class ChampionsDetail extends Component {
     async componentDidMount() {
         utils.disableScroll();
         const { name } = this.props.match.params;
+
+        this.setState({ name, images:[], loading: true });
+
         let images = await this.getImages(name);
+
         this.setState({ name, images: images, loading: false });
     }
 

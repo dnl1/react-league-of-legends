@@ -26,6 +26,7 @@ var config = {
     },
     devServer: isProduction ? {} : {
         inline: true,
+        historyApiFallback: true,
         stats: 'errors-only',
         compress: isProduction,
         outputPath: './public',

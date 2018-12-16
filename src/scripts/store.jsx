@@ -20,9 +20,7 @@ export const createCommonStore = (trackStore = false) => {
 
     const store = createStore(reducers,
         composeEnhancers(
-            applyMiddleware(thunk, logger),
-            // window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : window.devToolsExtension()
-            window.devToolsExtension ? window.devToolsExtension() : f => f
+            applyMiddleware(thunk, logger)
         ));
 
     if (trackStore) {
