@@ -51,8 +51,6 @@ class ChampionsDetail extends Component {
 
         name = this.fixName(name);
 
-        console.log('name', name);
-
         while (looping) {
             let url = `//ddragon.leagueoflegends.com/cdn/img/champion/splash/${utils.capitalize(name)}_${i}.jpg`;
             await fetch(url).then((res) => {
@@ -61,6 +59,11 @@ class ChampionsDetail extends Component {
                     i++;
                 }
                 else looping = false;
+            }).catch((reason) => {
+                console.error(reason);
+                looping = false;
+                this.onBackButtonClick();
+                alert('An error ocurred while loading champions skins, more details on DevTools');
             });
         }
 

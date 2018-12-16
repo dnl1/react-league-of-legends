@@ -23,7 +23,7 @@ class Champion extends Component {
 
                 <Link to={routeHelper.resolvePath(`/champions/${this.props.name.replace('.', '').toLowerCase()}`)}>
                     <div className="champion">
-                        <img className="champion__image" onLoad={this.onImageLoad.bind(this)} alt={this.props.name} src={`//ddragon.leagueoflegends.com/cdn/8.15.1/img/champion/${this.props.chave.replace('\'', '').replace(' ', '')}.png`} width="84" />
+                        <img className="champion__image" onLoad={this.onImageLoad.bind(this)} alt="" src={`//ddragon.leagueoflegends.com/cdn/8.15.1/img/champion/${this.props.chave.replace('\'', '').replace(' ', '')}.png`} width="84" />
                         <section>
                             <p>{this.props.name}</p>
                         </section>
