@@ -27,6 +27,10 @@ class ChampionsDetail extends Component {
     }
 
     fixName(name) {
+        if(name === 'wukong'){
+            return 'MonkeyKing';
+        }
+
         if (name.includes('\'')) {
             let specialChampions = ['kog', 'rek'];
             let splitedName = name.split('\'');
