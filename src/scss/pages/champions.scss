@@ -48,6 +48,9 @@
         }
         section {
             text-align: center;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 84px;
         }
     }
     .fade-leave {

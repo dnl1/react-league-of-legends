@@ -31,6 +31,10 @@ class ChampionsDetail extends Component {
             return 'MonkeyKing';
         }
 
+        if(name.indexOf("nunu") > -1){
+            return "Nunu";
+        }
+
         if (name.includes('\'')) {
             let specialChampions = ['kog', 'rek'];
             let splitedName = name.split('\'');
