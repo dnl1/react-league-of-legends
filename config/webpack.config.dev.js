@@ -130,7 +130,7 @@ module.exports = {
           // A missing `test` is equivalent to a match.
           {
             test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-            loader: require.resolve('url-loader'),
+            loader: 'url-loader',
             options: {
               limit: 10000,
               name: 'static/media/[name].[hash:8].[ext]',
@@ -140,7 +140,7 @@ module.exports = {
           {
             test: /\.(js|jsx|mjs)$/,
             include: paths.appSrc,
-            loader: require.resolve('babel-loader'),
+            loader: 'babel-loader',
             options: {
 
               // This is a feature of `babel-loader` for webpack (not Babel itself).
@@ -169,30 +169,13 @@ module.exports = {
             use: [
               require.resolve('style-loader'),
               {
-                loader: require.resolve('css-loader'),
+                loader: 'css-loader',
                 options: {
                   importLoaders: 1,
                 },
               },
               {
-                loader: require.resolve('postcss-loader'),
-                options: {
-                  // Necessary for external CSS imports to work
-                  // https://github.com/facebookincubator/create-react-app/issues/2677
-                  ident: 'postcss',
-                  plugins: () => [
-                    require('postcss-flexbugs-fixes'),
-                    autoprefixer({
-                      browsers: [
-                        '>1%',
-                        'last 4 versions',
-                        'Firefox ESR',
-                        'not ie < 9', // React doesn't support IE8 anyway
-                      ],
-                      flexbox: 'no-2009',
-                    }),
-                  ],
-                },
+                loader: 'postcss-loader'
               },
             ],
           },
@@ -207,7 +190,7 @@ module.exports = {
             // Also exclude `html` and `json` extensions so they get processed
             // by webpacks internal loaders.
             exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/],
-            loader: require.resolve('file-loader'),
+            loader: 'file-loader',
             options: {
               name: 'static/media/[name].[hash:8].[ext]',
             },
@@ -230,7 +213,6 @@ module.exports = {
       template: paths.appHtml,
     }),
     // Add module names to factory functions so they appear in browser profiler.
-    new webpack.NamedModulesPlugin(),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'development') { ... }. See `./env.js`.
     new webpack.DefinePlugin(env.stringified),
@@ -250,17 +232,9 @@ module.exports = {
     // solution that requires the user to opt into importing specific locales.
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.IgnorePlugin({ resourceRegExp: /^\.\/locale$/ }),
   ],
-  // Some libraries import Node modules but don't use them in the browser.
-  // Tell Webpack to provide empty mocks for them so importing them works.
-  node: {
-    dgram: 'empty',
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty',
-    child_process: 'empty',
-  },
+  
   // Turn off performance hints during development because we don't do any
   // splitting or minification in interest of speed. These warnings become
   // cumbersome.
