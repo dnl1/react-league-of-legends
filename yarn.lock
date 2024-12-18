@@ -2878,9 +2878,9 @@ flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
-floating-label-react@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/floating-label-react/-/floating-label-react-0.2.0.tgz#8e1191469fb0b0c777d3ac5b17794b5424c124be"
+floating-label-react@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/floating-label-react/-/floating-label-react-0.2.1.tgz#b9f215b7b6e948ae1d9a9b5d1f68b22aeacc6784"
 
 follow-redirects@1.5.10:
   version "1.5.10"
